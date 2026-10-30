@@ -1,0 +1,1544 @@
+---
+# CMS Commander Design System Specification
+# Complete design tokens, components, and patterns documentation
+
+metadata:
+  name: "CMS Commander Design System"
+  version: "1.0.0"
+  last_updated: "2026-03-11"
+  description: "Complete design system specification for CMS Commander application with green branding"
+  organization: "CMS Commander"
+
+# ═══════════════════════════════════════════════════════════════
+# BRAND IDENTITY
+# ═══════════════════════════════════════════════════════════════
+
+brand:
+  name: "CMS Commander"
+  primary_color: "#249E5E"
+  font_family: "Inter"
+  icon_library: "Lucide React"
+  description: "A comprehensive CMS management platform with green branding"
+
+# ═══════════════════════════════════════════════════════════════
+# DESIGN TOKENS
+# ═══════════════════════════════════════════════════════════════
+
+tokens:
+  
+  # ── Icons ──────────────────────────────────────────────────
+  
+  icons:
+    library: "lucide-react"
+    library_url: "https://lucide.dev/icons/"
+    package: "lucide-react"
+    installation: "npm install lucide-react"
+    
+    specifications:
+      stroke_width: "1.5px"
+      color: "#000000"
+      color_note: "Icons default to black (#000000), apply color via CSS/inline styles as needed"
+      
+    size_guidelines:
+      icon_11: "11px - XS buttons, micro badges"
+      icon_12: "12px - Breadcrumb separators, small UI elements"
+      icon_13: "13px - SM buttons, tabs, navigation items"
+      icon_14: "14px - MD buttons (default), form inputs, cards"
+      icon_15: "15px - Close buttons, modal headers"
+      icon_16: "16px - LG buttons, larger icons in cards"
+      icon_18: "18px - Stat cards, feature icons"
+      icon_20: "20px - Large cards, prominent features"
+      icon_22: "22px - Confirmation dialog icons"
+      icon_24: "24px - Hero icons, large UI elements"
+    
+    usage_rules:
+      - "Always use Lucide icons exclusively - no other icon libraries"
+      - "Default stroke width is 1.5px for all icons"
+      - "Default color is black (#000000)"
+      - "Apply contextual colors via CSS color property"
+      - "Match icon size to adjacent text or component size"
+      - "Use consistent stroke width across all icons"
+      - "Import syntax: import { IconName } from 'lucide-react'"
+    
+    common_icons:
+      actions:
+        - "Plus - Add/Create actions"
+        - "Edit, Edit2, Edit3 - Edit actions"
+        - "Trash2 - Delete actions"
+        - "X - Close/Dismiss actions"
+        - "Check - Confirm/Success actions"
+        - "Copy - Duplicate actions"
+        - "Download - Export actions"
+        - "Upload - Import/Upload actions"
+        - "RefreshCw - Refresh/Reload actions"
+        - "Send - Submit/Send actions"
+      
+      navigation:
+        - "ChevronRight - Breadcrumb separator, next"
+        - "ChevronLeft - Back, previous"
+        - "ChevronDown - Dropdown indicator, expand"
+        - "ChevronUp - Collapse indicator"
+        - "ChevronsUpDown - Sort indicator"
+        - "ArrowRight - Forward navigation"
+        - "ArrowLeft - Back navigation"
+        - "ExternalLink - Open in new tab"
+        - "Home - Home/Dashboard icon"
+      
+      status:
+        - "CheckCircle2 - Success/Completed status"
+        - "XCircle - Failed/Error status"
+        - "AlertCircle - Warning/Error alert"
+        - "AlertTriangle - Warning alert"
+        - "Clock - Pending/Time status"
+        - "Info - Information status"
+        - "Zap - Active/Live status"
+      
+      interface:
+        - "User - User/Profile icons"
+        - "Users - Multiple users/Team"
+        - "Settings - Settings/Configuration"
+        - "Shield - Security/Roles"
+        - "Bell - Notifications"
+        - "Search - Search functionality"
+        - "Filter - Filter controls"
+        - "MoreHorizontal - More options menu"
+        - "MoreVertical - Vertical menu"
+        - "Globe - Instance/Web icons"
+        - "Image - Image/Media icons"
+        - "FileText - Document icons"
+        - "LogOut - Sign out action"
+  
+  # ── Color Palette ──────────────────────────────────────────
+  
+  colors:
+    
+    brand_primary:
+      primary_50:
+        hex: "#E8F7F0"
+        token: "--primary-50"
+        usage: "Backgrounds, hover states, selected items"
+        semantic: "Primary light tint"
+      
+      primary_200:
+        hex: "#9DDBC0"
+        token: "--primary-200"
+        usage: "Chart fills, medium accents"
+        semantic: "Primary mid tone"
+      
+      primary_500:
+        hex: "#249E5E"
+        token: "--primary"
+        usage: "Primary actions, brand color, active states"
+        semantic: "Main brand color"
+      
+      primary_600:
+        hex: "#1E8A51"
+        token: "--primary-600"
+        usage: "Hover states on primary buttons"
+        semantic: "Primary hover"
+      
+      primary_700:
+        hex: "#177042"
+        token: "--primary-700"
+        usage: "Active/pressed states on primary buttons"
+        semantic: "Primary active"
+    
+    neutral_grays:
+      gray_50:
+        hex: "#F9FAFB"
+        token: "--gray-50"
+        usage: "Page backgrounds, subtle fills"
+      
+      gray_100:
+        hex: "#F3F4F6"
+        token: "--gray-100"
+        usage: "Card alternate backgrounds, disabled states"
+      
+      gray_200:
+        hex: "#E5E7EB"
+        token: "--gray-200"
+        usage: "Borders, dividers"
+      
+      gray_300:
+        hex: "#D1D5DB"
+        token: "--gray-300"
+        usage: "Disabled borders, inactive icons"
+      
+      gray_400:
+        hex: "#9CA3AF"
+        token: "--gray-400"
+        usage: "Placeholder text, helper text, timestamps"
+      
+      gray_500:
+        hex: "#6B7280"
+        token: "--gray-500"
+        usage: "Secondary text, labels"
+      
+      gray_600:
+        hex: "#4B5563"
+        token: "--gray-600"
+        usage: "Body text, neutral button text"
+      
+      gray_700:
+        hex: "#374151"
+        token: "--gray-700"
+        usage: "Headings, important text"
+      
+      gray_800:
+        hex: "#1F2937"
+        token: "--gray-800"
+        usage: "Primary text, high emphasis"
+      
+      gray_900:
+        hex: "#111827"
+        token: "--gray-900"
+        usage: "Darkest text, main content"
+    
+    semantic_colors:
+      success:
+        main:
+          hex: "#16A34A"
+          token: "--success"
+          usage: "Success states, positive indicators"
+        light:
+          hex: "#DCFCE7"
+          token: "--success-light"
+          usage: "Success backgrounds, badges"
+      
+      warning:
+        main:
+          hex: "#D97706"
+          token: "--warning"
+          usage: "Warning states, caution indicators"
+        light:
+          hex: "#FEF3C7"
+          token: "--warning-light"
+          usage: "Warning backgrounds, alerts"
+      
+      danger:
+        main:
+          hex: "#DC2626"
+          token: "--danger"
+          usage: "Error states, destructive actions"
+        light:
+          hex: "#FEE2E2"
+          token: "--danger-light"
+          usage: "Error backgrounds, destructive button hovers"
+      
+      info:
+        main:
+          hex: "#2563EB"
+          token: "--info"
+          usage: "Informational states, links"
+        light:
+          hex: "#DBEAFE"
+          token: "--info-light"
+          usage: "Info backgrounds, info badges"
+    
+    surface_colors:
+      white:
+        hex: "#FFFFFF"
+        token: "--white"
+        usage: "Card backgrounds, input backgrounds"
+      
+      page_bg:
+        hex: "#F9FAFB"
+        token: "--page-bg"
+        usage: "Main page background"
+      
+      card_bg:
+        hex: "#FFFFFF"
+        token: "--card-bg"
+        usage: "Card component background"
+      
+      border:
+        hex: "#E5E7EB"
+        token: "--border"
+        usage: "Default border color"
+      
+      border_focus:
+        hex: "#249E5E"
+        token: "--border-focus"
+        usage: "Focused input borders"
+    
+    text_colors:
+      text_primary:
+        hex: "#111827"
+        description: "Primary body text"
+      text_heading:
+        hex: "#374151"
+        description: "Heading text"
+      text_secondary:
+        hex: "#6B7280"
+        description: "Secondary text, labels"
+      text_muted:
+        hex: "#9CA3AF"
+        description: "Muted text, placeholders"
+      text_disabled:
+        hex: "#D1D5DB"
+        description: "Disabled text"
+      text_brand:
+        hex: "#249E5E"
+        description: "Brand colored text, links"
+      text_danger:
+        hex: "#DC2626"
+        description: "Error messages"
+      text_warning:
+        hex: "#D97706"
+        description: "Warning messages"
+      text_info:
+        hex: "#2563EB"
+        description: "Info messages"
+    
+    chart_colors:
+      primary_green: "#249E5E"
+      green_light: "#9DDBC0"
+      green_faint: "#E8F7F0"
+      blue: "#2563EB"
+      blue_light: "#BFDBFE"
+      orange: "#F59E0B"
+      red: "#DC2626"
+      purple: "#7C3AED"
+      gray: "#D1D5DB"
+  
+  # ── Typography ──────────────────────────────────────────────
+  
+  typography:
+    
+    font_family:
+      primary: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      monospace: "monospace"
+    
+    font_weights:
+      light: 300
+      regular: 400
+      medium: 500
+      semibold: 600
+      bold: 700
+      extrabold: 800
+    
+    type_scale:
+      display:
+        size: "32px"
+        weight: 700
+        line_height: "1.25"
+        letter_spacing: "-0.02em"
+        usage: "Hero sections, onboarding screens, marketing headers"
+      
+      h1:
+        size: "24px"
+        weight: 600
+        line_height: "1.35"
+        letter_spacing: "-0.01em"
+        usage: "Main screen header, top-level page title, one per screen"
+      
+      h2:
+        size: "20px"
+        weight: 600
+        line_height: "1.4"
+        letter_spacing: "-0.01em"
+        usage: "Section headers within a page, modal titles, drawer headings"
+      
+      h3:
+        size: "18px"
+        weight: 600
+        line_height: "1.4"
+        letter_spacing: "0"
+        usage: "Card titles, panel headers, grouped content labels"
+      
+      h4:
+        size: "16px"
+        weight: 600
+        line_height: "1.5"
+        letter_spacing: "0"
+        usage: "Widget titles, sidebar section headers, collapsible group labels"
+      
+      body_lg:
+        size: "15px"
+        weight: 400
+        line_height: "1.6"
+        letter_spacing: "0"
+        usage: "Lead paragraphs, empty state descriptions, intro copy"
+      
+      body_md:
+        size: "14px"
+        weight: 400
+        line_height: "1.6"
+        letter_spacing: "0"
+        usage: "Default body copy, form field values, list item content"
+      
+      body_sm:
+        size: "13px"
+        weight: 400
+        line_height: "1.5"
+        letter_spacing: "0"
+        usage: "Secondary content, table row data, metadata lines"
+      
+      caption:
+        size: "12px"
+        weight: 400
+        line_height: "1.4"
+        letter_spacing: "0"
+        usage: "Timestamps, helper text, input hints, footnotes, tooltips"
+      
+      label:
+        size: "12px"
+        weight: 600
+        line_height: "1.4"
+        letter_spacing: "0.04em"
+        usage: "Form field labels, table column headers, filter chips"
+      
+      micro:
+        size: "11px"
+        weight: 500
+        line_height: "1.4"
+        letter_spacing: "0.06em"
+        usage: "Status badges, tags, version numbers, keyboard hints"
+  
+  # ── Spacing (Strict +4px Increments) ───────────────────────
+  
+  spacing:
+    space_1:
+      value: "4px"
+      usage: "Icon-to-text gap, tight inline spacing"
+    
+    space_2:
+      value: "8px"
+      usage: "Input inner padding, badge padding, row gap"
+    
+    space_3:
+      value: "12px"
+      usage: "Small component padding, button vertical padding"
+    
+    space_4:
+      value: "16px"
+      usage: "Button horizontal padding, list row padding"
+    
+    space_5:
+      value: "20px"
+      usage: "Card inner padding (compact)"
+    
+    space_6:
+      value: "24px"
+      usage: "Card inner padding (default), section gap"
+    
+    space_7:
+      value: "28px"
+      usage: "Modal padding, form group gap"
+    
+    space_8:
+      value: "32px"
+      usage: "Section internal spacing"
+    
+    space_9:
+      value: "36px"
+      usage: "Large card padding, drawer inner gap"
+    
+    space_10:
+      value: "40px"
+      usage: "Page horizontal padding, content max-width padding"
+    
+    space_11:
+      value: "44px"
+      usage: "Feature section top spacing"
+    
+    space_12:
+      value: "48px"
+      usage: "Between page sections"
+  
+  # ── Border Radius (8px Base) ───────────────────────────────
+  
+  border_radius:
+    sm:
+      value: "4px"
+      token: "radiusSm"
+      usage: "Small elements, checkboxes"
+    
+    md:
+      value: "8px"
+      token: "radiusMd"
+      usage: "Default - buttons, inputs, cards"
+    
+    lg:
+      value: "12px"
+      token: "radiusLg"
+      usage: "Cards, modals, large containers"
+    
+    xl:
+      value: "16px"
+      token: "radiusXl"
+      usage: "Large modals, prominent cards"
+    
+    xxl:
+      value: "24px"
+      token: "radius2xl"
+      usage: "Extra large containers"
+    
+    full:
+      value: "9999px"
+      token: "radiusFull"
+      usage: "Pills, badges, circular elements"
+  
+  # ── Shadows / Elevation ────────────────────────────────────
+  
+  shadows:
+    sm:
+      value: "0 1px 2px rgba(0,0,0,0.05)"
+      token: "shadowSm"
+      usage: "Subtle elevation, input fields"
+    
+    md:
+      value: "0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04)"
+      token: "shadowMd"
+      usage: "Cards, dropdowns"
+    
+    lg:
+      value: "0 4px 16px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04)"
+      token: "shadowLg"
+      usage: "Modals, popovers, elevated cards"
+    
+    xl:
+      value: "0 8px 32px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.06)"
+      token: "shadowXl"
+      usage: "Large modals, full-screen overlays"
+    
+    brand:
+      value: "0 4px 16px rgba(36,158,94,0.25)"
+      token: "shadowGreen"
+      usage: "Primary button hover, brand highlights"
+
+# ═══════════════════════════════════════════════════════════════
+# COMPONENTS
+# ═══════════════════════════════════════════════════════════════
+
+components:
+  
+  # ── Buttons ────────────────────────────────────────────────
+  
+  buttons:
+    
+    design_tokens:
+      font_family: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif"
+      font_weight: 500
+      border_width: "1px"
+      border_radius: "8px (radiusMd)"
+      icon_gap: "6px (all sizes)"
+      transition: "all 0.15s ease"
+    
+    sizes:
+      xs:
+        height: "26px"
+        horizontal_padding: "10px"
+        font_size: "11px"
+        icon_size: "11px"
+        usage: "Inline chips, compact tables, dense toolbars"
+      
+      sm:
+        height: "30px"
+        horizontal_padding: "12px"
+        font_size: "12px"
+        icon_size: "13px"
+        usage: "Sidebar actions, card footers, secondary CTAs"
+      
+      md:
+        height: "36px"
+        horizontal_padding: "16px"
+        font_size: "13px"
+        icon_size: "14px"
+        usage: "Default - most forms, dialogs, headers (recommended)"
+      
+      lg:
+        height: "42px"
+        horizontal_padding: "20px"
+        font_size: "14px"
+        icon_size: "16px"
+        usage: "Hero CTAs, landing pages, prominent actions"
+    
+    variants:
+      primary:
+        default:
+          background: "#249E5E"
+          text_color: "#FFFFFF"
+          border: "1px solid #249E5E"
+          shadow: "shadowSm"
+        hover:
+          background: "#1E8A51"
+          border: "1px solid #1E8A51"
+          shadow: "shadowGreen (brand shadow)"
+          transform: "translateY(-1px)"
+      
+      secondary:
+        default:
+          background: "#FFFFFF"
+          text_color: "#249E5E"
+          border: "1px solid #249E5E"
+        hover:
+          background: "#E8F7F0 (primary-50)"
+          border: "1px solid #249E5E"
+          shadow: "0 2px 8px rgba(36,158,94,0.13)"
+          transform: "translateY(-1px)"
+      
+      neutral:
+        default:
+          background: "#FFFFFF"
+          text_color: "#374151"
+          border: "1px solid #E5E7EB"
+        hover:
+          background: "#F3F4F6"
+          border: "1px solid #D1D5DB"
+          shadow: "shadowSm"
+      
+      ghost:
+        default:
+          background: "transparent"
+          text_color: "#6B7280"
+          border: "1px solid transparent"
+        hover:
+          background: "#F3F4F6"
+          border: "1px solid transparent"
+      
+      danger:
+        default:
+          background: "#DC2626"
+          text_color: "#FFFFFF"
+          border: "1px solid #DC2626"
+        hover:
+          background: "#B91C1C"
+          border: "1px solid #B91C1C"
+          shadow: "0 4px 12px rgba(220,38,38,0.3)"
+          transform: "translateY(-1px)"
+      
+      link:
+        default:
+          background: "none"
+          text_color: "#249E5E"
+          border: "none"
+          padding: "0"
+          height: "auto"
+          text_decoration: "none"
+        hover:
+          text_color: "#1E8A51"
+          text_decoration: "underline"
+    
+    states:
+      - default
+      - hover
+      - active
+      - loading
+      - disabled
+  
+  # ── Forms ──────────────────────────────────────────────────
+  
+  forms:
+    
+    text_input:
+      height: "36px"
+      padding: "0 12px"
+      padding_with_left_icon: "0 36px 0 34px"
+      padding_with_right_icon: "0 34px 0 12px"
+      font_size: "13px"
+      font_family: "Inter"
+      border: "1px solid #E5E7EB"
+      border_focus: "1px solid #249E5E"
+      border_error: "1px solid #DC2626"
+      border_radius: "8px"
+      background: "#FFFFFF"
+      background_disabled: "#F9FAFB"
+      focus_shadow: "0 0 0 3px rgba(36,158,94,0.09)"
+      error_shadow: "0 0 0 3px rgba(220,38,38,0.08)"
+      transition: "border 0.15s, box-shadow 0.15s"
+    
+    textarea:
+      padding: "10px 12px"
+      font_size: "13px"
+      border: "1px solid #E5E7EB"
+      border_focus: "1px solid #249E5E"
+      border_radius: "8px"
+      resize: "vertical"
+    
+    select_custom_dropdown:
+      height: "36px"
+      padding: "0 12px"
+      font_size: "13px"
+      border: "1.5px solid #E5E7EB"
+      border_open: "1.5px solid #249E5E"
+      border_radius: "8px"
+      background: "#FFFFFF"
+      background_disabled: "#F9FAFB"
+      option_selected_bg: "#E8F7F0 (primary-50)"
+      option_hover_bg: "#E8F7F0 (primary-50)"
+      option_selected_color: "#249E5E"
+      focus_shadow: "0 0 0 3px rgba(36,158,94,0.09)"
+      dropdown_shadow: "shadowLg"
+      note: "Custom dropdown replaces native select, uses primary-50 for selected/hover instead of grey"
+    
+    checkbox:
+      size: "16px"
+      border_radius: "4px"
+      border: "1.5px solid #D1D5DB"
+      border_checked: "1.5px solid #249E5E"
+      background: "#FFFFFF"
+      background_checked: "#249E5E"
+      checkmark_color: "#FFFFFF"
+      checkmark_size: "10px"
+      transition: "all 0.15s"
+    
+    radio:
+      size: "16px"
+      border_radius: "50%"
+      border: "1.5px solid #D1D5DB"
+      border_checked: "1.5px solid #249E5E"
+      background: "#FFFFFF"
+      dot_size: "8px"
+      dot_color: "#249E5E"
+      transition: "all 0.15s"
+    
+    toggle_switch:
+      small:
+        width: "28px"
+        height: "16px"
+        knob_diameter: "12px"
+      medium:
+        width: "36px"
+        height: "20px"
+        knob_diameter: "16px"
+      background_off: "#D1D5DB"
+      background_on: "#249E5E"
+      knob_color: "#FFFFFF"
+      knob_shadow: "0 1px 3px rgba(0,0,0,0.2)"
+      transition: "background 0.2s, left 0.2s"
+    
+    labels:
+      font_size: "12px"
+      font_weight: 600
+      color: "#374151"
+      letter_spacing: "0.02em"
+      margin_bottom: "5px"
+    
+    helper_text:
+      font_size: "11px"
+      color: "#9CA3AF"
+      color_error: "#DC2626"
+      margin_top: "5px"
+      icon_size: "11px"
+  
+  # ── Cards ──────────────────────────────────────────────────
+  
+  cards:
+    
+    design_tokens:
+      font_family: "Inter"
+      background: "#FFFFFF"
+      border: "1px solid #E5E7EB"
+      border_radius: "12px (radiusLg)"
+      shadow_default: "shadowMd"
+      shadow_hover: "0 8px 24px rgba(36,158,94,0.12)"
+      accent_bar_height: "3px"
+      accent_bar_color: "#249E5E"
+      hover_transform: "translateY(-2px)"
+      transition: "all 0.2s ease"
+    
+    typography:
+      stat_value:
+        size: "28px"
+        weight: 700
+        color: "#111827"
+      card_title:
+        size: "13px"
+        weight: 600
+        color: "#111827"
+      body_text:
+        size: "13px"
+        weight: 500
+        color: "#1F2937"
+      label_meta:
+        size: "12px"
+        weight: 400
+        color: "#6B7280"
+      caption_time:
+        size: "11px"
+        weight: 400
+        color: "#9CA3AF"
+      badge_tag:
+        size: "10-11px"
+        weight: "500-600"
+        color: "varies"
+    
+    spacing:
+      card_padding: "20px"
+      header_padding: "16px 20px"
+      row_padding: "14px 20px"
+      feedback_card_padding: "24px 20px"
+      margin_bottom: "8px, 12px, 16px"
+      grid_gap: "12px, 16px"
+      icon_gap: "4px, 8px, 10px"
+    
+    types:
+      stat_card:
+        description: "Metric cards with large values, icons, deltas"
+        hover_states: true
+        accent_bar: true
+      
+      list_card:
+        description: "Row-based cards with interactive list items"
+        row_hover: "background: #E8F7F0"
+      
+      content_card:
+        description: "Rich cards with header, body, actions"
+        sections:
+          - header
+          - body
+          - footer
+      
+      feedback_card:
+        description: "Centered cards for analytics/metrics"
+        padding: "24px 20px"
+        text_align: "center"
+  
+  # ── Badges & Tags ──────────────────────────────────────────
+  
+  badges:
+    
+    sizes:
+      sm:
+        padding: "1px 6px"
+        font_size: "10px"
+      md:
+        padding: "2px 8px"
+        font_size: "11px"
+      lg:
+        padding: "4px 12px"
+        font_size: "12px"
+    
+    variants:
+      success:
+        color: "#16A34A"
+        background: "#DCFCE7"
+        border: "1px solid rgba(22,163,74,0.25)"
+      warning:
+        color: "#D97706"
+        background: "#FEF3C7"
+        border: "1px solid rgba(217,119,6,0.25)"
+      danger:
+        color: "#DC2626"
+        background: "#FEE2E2"
+        border: "1px solid rgba(220,38,38,0.25)"
+      info:
+        color: "#2563EB"
+        background: "#DBEAFE"
+        border: "1px solid rgba(37,99,235,0.25)"
+      neutral:
+        color: "#4B5563"
+        background: "#F3F4F6"
+        border: "1px solid #E5E7EB"
+      brand:
+        color: "#249E5E"
+        background: "#E8F7F0"
+        border: "1px solid rgba(36,158,94,0.25)"
+    
+    properties:
+      font_weight: 600
+      border_radius: "radiusFull (pill) or radiusMd (square)"
+      letter_spacing: "0.02em"
+      line_height: "1.4"
+      icon_size: "11px"
+      dot_size: "5px"
+    
+    tags:
+      padding: "3px 8px"
+      font_size: "12px"
+      font_weight: 500
+      color: "#374151"
+      background: "#F3F4F6"
+      border: "1px solid #E5E7EB"
+      border_radius: "8px"
+      removable: true
+  
+  # ── Alerts ─────────────────────────────────────────────────
+  
+  alerts:
+    
+    design_tokens:
+      font_family: "Inter"
+      border_radius: "12px"
+      padding: "16px"
+      title_size: "14px"
+      title_weight: 600
+      message_size: "13px"
+      icon_size: "14px"
+      icon_container_size: "32px"
+      icon_container_radius: "50%"
+    
+    variants:
+      success:
+        background: "#F0FDF4"
+        icon_background: "#22C55E"
+        icon_color: "#FFFFFF"
+        close_color: "#4ADE80"
+        icon: "Check"
+      
+      danger:
+        background: "#FEF2F2"
+        icon_background: "#EF4444"
+        icon_color: "#FFFFFF"
+        close_color: "#F87171"
+        icon: "AlertCircle"
+      
+      warning:
+        background: "#FFFBEB"
+        icon_background: "#F59E0B"
+        icon_color: "#FFFFFF"
+        close_color: "#FCD34D"
+        icon: "AlertCircle"
+      
+      neutral:
+        background: "#F3F4F6"
+        icon_background: "#9CA3AF"
+        icon_color: "#FFFFFF"
+        close_color: "#9CA3AF"
+        icon: "Circle"
+      
+      info:
+        background: "#EFF6FF"
+        icon_background: "#3B82F6"
+        icon_color: "#FFFFFF"
+        close_color: "#60A5FA"
+        icon: "Check"
+    
+    toast_notifications:
+      padding: "12px 14px"
+      background: "#FFFFFF"
+      border: "1px solid #E5E7EB"
+      border_radius: "10px"
+      box_shadow: "0 4px 20px rgba(0,0,0,0.10), 0 1px 4px rgba(0,0,0,0.06)"
+      icon_size: "28px"
+      message_size: "13px"
+      position: "fixed bottom-right"
+  
+  # ── Tables ─────────────────────────────────────────────────
+  
+  tables:
+    
+    structure:
+      background: "#FFFFFF"
+      border: "1px solid #E5E7EB"
+      border_radius: "12px (radiusLg)"
+      box_shadow: "shadowMd"
+      border_collapse: "collapse"
+    
+    header:
+      background: "#F9FAFB"
+      padding: "11px 16px"
+      font_size: "11px"
+      font_weight: 700
+      letter_spacing: "0.04em"
+      text_transform: "uppercase"
+      color: "#6B7280"
+      border_bottom: "1px solid #E5E7EB"
+      sortable_cursor: "pointer"
+    
+    rows:
+      padding: "12px 16px"
+      font_size: "13px"
+      color: "#374151"
+      border_bottom: "1px solid #E5E7EB"
+      hover_background: "#F8FDF9"
+      selected_background: "#E8F7F0 (primary-50)"
+      striped_background: "#F9FAFB"
+      transition: "background 0.12s"
+    
+    cells:
+      vertical_align: "middle"
+      text_align: "left, center, or right"
+      muted_color: "#9CA3AF"
+    
+    toolbar:
+      padding: "14px 16px"
+      border_bottom: "1px solid #E5E7EB"
+      background: "#FFFFFF"
+      search_input_width: "200px"
+      button_height: "32px"
+    
+    pagination:
+      padding: "12px 16px"
+      border_top: "1px solid #E5E7EB"
+      background: "#F9FAFB"
+      button_size: "28px"
+      font_size: "12px"
+    
+    features:
+      - sortable_columns
+      - search_filtering
+      - row_selection
+      - bulk_actions
+      - pagination
+      - empty_states
+      - loading_skeletons
+  
+  # ── Avatars ────────────────────────────────────────────────
+  
+  avatars:
+    
+    sizes:
+      xs:
+        diameter: "24px"
+        font_size: "9px"
+        status_dot: "8px"
+        usage: "Stacked lists, inline mentions, compact rows"
+      
+      sm:
+        diameter: "28px"
+        font_size: "10px"
+        status_dot: "8px"
+        usage: "Avatar groups, sidebar user items"
+      
+      md:
+        diameter: "36px"
+        font_size: "13px"
+        status_dot: "10px"
+        usage: "Default - nav headers, comment threads (recommended)"
+      
+      lg:
+        diameter: "44px"
+        font_size: "15px"
+        status_dot: "12px"
+        usage: "Profile cards, user detail panels"
+      
+      xl:
+        diameter: "56px"
+        font_size: "18px"
+        status_dot: "16px"
+        usage: "Profile page header, account settings hero"
+    
+    properties:
+      border_radius: "50%"
+      background: "#E8F7F0 (primaryLight)"
+      color: "#249E5E (primary)"
+      font_weight: 700
+      border: "2px solid #FFFFFF"
+      box_shadow: "shadowSm"
+      initials: "2 characters max, uppercase"
+    
+    status_indicators:
+      online:
+        color: "#16A34A (success)"
+      away:
+        color: "#D97706 (warning)"
+      offline:
+        color: "#D1D5DB (gray300)"
+      position: "absolute bottom-right"
+      border: "2px solid #FFFFFF"
+    
+    avatar_groups:
+      overlap: "-8px"
+      z_index: "descending"
+      overflow_indicator: "+N badge"
+  
+  # ── Modals & Popups ────────────────────────────────────────
+  
+  popups:
+    
+    overlay:
+      background: "rgba(17,24,39,0.55)"
+      backdrop_filter: "blur(3px)"
+      z_index: 1000
+      position: "fixed inset-0"
+    
+    basic_modal:
+      width: "min(480px, 94vw)"
+      background: "#FFFFFF"
+      border_radius: "16px (radiusXl)"
+      box_shadow: "shadowXl"
+      header_padding: "20px 24px 16px"
+      body_padding: "24px"
+      footer_padding: "16px 24px"
+      footer_background: "#F9FAFB"
+    
+    confirmation_dialog:
+      width: "min(400px, 94vw)"
+      padding: "28px 24px"
+      text_align: "center"
+      icon_size: "52px"
+      icon_radius: "50%"
+      variants:
+        - danger
+        - warning
+        - info
+    
+    side_drawer:
+      width: "min(380px, 96vw)"
+      height: "100vh"
+      position: "right-side"
+      box_shadow: "-8px 0 32px rgba(0,0,0,0.12)"
+      overflow_y: "auto"
+    
+    popover:
+      min_width: "220px"
+      background: "#FFFFFF"
+      border: "1px solid #E5E7EB"
+      border_radius: "12px (radiusLg)"
+      box_shadow: "shadowLg"
+      z_index: 200
+      position: "absolute (anchored)"
+    
+    context_menu:
+      min_width: "180px"
+      padding: "4px 0"
+      background: "#FFFFFF"
+      border: "1px solid #E5E7EB"
+      border_radius: "12px (radiusLg)"
+      box_shadow: "shadowLg"
+      z_index: 300
+      item_padding: "9px 14px"
+      item_font_size: "12px"
+    
+    toast_stack:
+      position: "fixed bottom-right"
+      gap: "8px"
+      max_width: "320px"
+      z_index: 9999
+      animation: "slideInRight 0.2s ease"
+      auto_dismiss: "3500ms"
+    
+    rich_tooltip:
+      background: "#1F2937 (gray800)"
+      color: "#FFFFFF"
+      border_radius: "12px (radiusLg)"
+      padding: "12px 14px"
+      min_width: "220px"
+      box_shadow: "shadowXl"
+      z_index: 500
+      caret: "6px triangle"
+      position: "bottom-center of trigger"
+    
+    lightbox:
+      background: "#1F2937 (gray900)"
+      width: "min(620px, 96vw)"
+      border_radius: "16px (radiusXl)"
+      box_shadow: "shadowXl"
+      image_height: "280px"
+      thumbnail_size: "56px × 40px"
+      thumbnail_border_active: "2px solid #249E5E"
+    
+    fullscreen_modal:
+      width: "min(760px, 98vw)"
+      max_height: "90vh"
+      border_radius: "16px (radiusXl)"
+      overflow: "hidden"
+  
+  # ── Charts ─────────────────────────────────────────────────
+  
+  charts:
+    
+    design_tokens:
+      font_family: "Inter"
+      card_padding: "24px"
+      chart_height: "240px, 260px"
+      background: "#FFFFFF"
+      border: "1px solid #E5E7EB"
+      border_radius: "12px (radiusLg)"
+      box_shadow: "shadowSm"
+    
+    typography:
+      chart_title:
+        size: "13px"
+        weight: 700
+        color: "#111827"
+        margin: "0 0 2px"
+      
+      chart_subtitle:
+        size: "11px"
+        weight: 400
+        color: "#9CA3AF"
+        margin: "0 0 20px"
+      
+      axis_labels:
+        size: "11px"
+        weight: 400
+        color: "#9CA3AF"
+      
+      legend_text:
+        size: "12px"
+        weight: 400
+        color: "#6B7280"
+      
+      tooltip_label:
+        size: "11px"
+        weight: 700
+        color: "#374151"
+      
+      tooltip_value:
+        size: "12px"
+        weight: 600
+        color: "#111827"
+      
+      donut_center_value:
+        size: "24px"
+        weight: 700
+        color: "#111827"
+      
+      donut_center_label:
+        size: "11px"
+        weight: 400
+        color: "#9CA3AF"
+      
+      kpi_value:
+        size: "14px"
+        weight: 700
+        color: "#111827"
+      
+      kpi_delta:
+        size: "10px"
+        weight: 400
+        color: "semantic"
+    
+    spacing:
+      title_margin: "0 0 2px"
+      subtitle_margin: "0 0 20px"
+      legend_margin: "0 0 12px"
+      legend_item_gap: "16px"
+      legend_dot_text_gap: "6px"
+      legend_dot_size: "10px"
+      tooltip_padding: "10px 14px"
+      kpi_card_padding: "10px 14px"
+      chart_margins: "top:4 right:8-24 left:0 bottom:0"
+    
+    chart_types:
+      line_chart:
+        stroke_width_primary: "2.5px"
+        stroke_width_secondary: "2px"
+        active_dot_radius: "4-5px"
+        grid_stroke_dasharray: "3 3"
+        grid_stroke_color: "#E5E7EB"
+        vertical_lines: false
+      
+      bar_chart:
+        bar_size_grouped: "18px"
+        bar_size_single: "24px"
+        bar_gap: "4px"
+        bar_radius: "[6, 6, 0, 0] (top corners)"
+      
+      area_chart:
+        stroke_width_primary: "2.5px"
+        stroke_width_secondary: "2px"
+        gradient_opacity: "0.25 → 0.02"
+      
+      donut_chart:
+        inner_radius: "72px"
+        outer_radius: "108px"
+        padding_angle: "3deg"
+        start_angle: "90deg"
+        end_angle: "-270deg"
+    
+    color_palette:
+      - name: "Primary Green"
+        hex: "#249E5E"
+      - name: "Green Light"
+        hex: "#9DDBC0"
+      - name: "Green Faint"
+        hex: "#E8F7F0"
+      - name: "Blue"
+        hex: "#2563EB"
+      - name: "Blue Light"
+        hex: "#BFDBFE"
+      - name: "Orange"
+        hex: "#F59E0B"
+      - name: "Red"
+        hex: "#DC2626"
+      - name: "Purple"
+        hex: "#7C3AED"
+      - name: "Gray"
+        hex: "#D1D5DB"
+  
+  # ── Progress & Loading ─────────────────────────────────────
+  
+  progress:
+    
+    progress_bar:
+      height: "6px"
+      background: "#F3F4F6"
+      border_radius: "9999px (radiusFull)"
+      bar_color_default: "#249E5E"
+      bar_color_warning: "#D97706 (>60%)"
+      bar_color_danger: "#DC2626 (>80%)"
+      transition: "width 0.4s ease"
+      label_size: "12px"
+      value_size: "12px"
+      value_weight: 600
+    
+    skeleton_loader:
+      background: "linear-gradient(90deg, #F3F4F6 25%, #E5E7EB 50%, #F3F4F6 75%)"
+      background_size: "200% 100%"
+      border_radius: "8px (radiusMd) or 50% (circle)"
+      animation: "shimmer 1.5s infinite"
+      default_height: "14px"
+  
+  # ── Navigation ─────────────────────────────────────────────
+  
+  navigation:
+    
+    tabs:
+      padding: "10px 16px"
+      font_size: "13px"
+      font_weight_active: 600
+      font_weight_inactive: 400
+      color_active: "#249E5E"
+      color_inactive: "#6B7280"
+      border_bottom: "1px solid #E5E7EB"
+      active_indicator: "2px solid #249E5E (bottom)"
+      transition: "all 0.15s"
+      icon_size: "13px"
+    
+    breadcrumb:
+      font_size: "12px"
+      color_active: "#374151"
+      color_inactive: "#249E5E"
+      separator: "ChevronRight (13px)"
+      separator_color: "#D1D5DB"
+      home_icon_size: "12px"
+      gap: "4px"
+    
+    sidebar:
+      width: "280px"
+      background: "#FFFFFF"
+      border: "1px solid #E5E7EB"
+      item_padding: "10px 16px"
+      item_font_size: "13px"
+      item_active_bg: "#E8F7F0"
+      item_active_color: "#249E5E"
+      item_hover_bg: "#F9FAFB"
+      icon_size: "16px"
+
+# ═══════════════════════════════════════════════════════════════
+# PATTERNS & USAGE
+# ═══════════════════════════════════════════════════════════════
+
+patterns:
+  
+  hover_states:
+    cards:
+      default: "border: #E5E7EB, shadow: shadowMd"
+      hover: "border: #249E5E66, shadow: 0 8px 24px rgba(36,158,94,0.12), transform: translateY(-2px)"
+      accent_bar: "3px top bar #249E5E appears on hover"
+    
+    buttons:
+      transform: "translateY(-1px)"
+      shadow_enhance: true
+      color_shift: true
+    
+    table_rows:
+      background: "#F8FDF9"
+      icon_color_shift: "#249E5E"
+  
+  focus_states:
+    inputs:
+      border: "1px solid #249E5E"
+      outline: "none"
+      box_shadow: "0 0 0 3px rgba(36,158,94,0.09)"
+      transition: "border 0.15s, box-shadow 0.15s"
+    
+    buttons:
+      outline: "2px solid #249E5E"
+      outline_offset: "2px"
+  
+  error_states:
+    inputs:
+      border: "1px solid #DC2626"
+      box_shadow: "0 0 0 3px rgba(220,38,38,0.08)"
+    
+    messages:
+      color: "#DC2626"
+      font_size: "11px"
+      icon: "AlertCircle (11px)"
+  
+  disabled_states:
+    opacity: 0.45
+    cursor: "not-allowed"
+    background: "#F9FAFB"
+    pointer_events: "none"
+  
+  responsive_breakpoints:
+    mobile: "< 640px"
+    tablet: "640px - 1024px"
+    desktop: "> 1024px"
+    note: "Design defaults to desktop but is responsive"
+  
+  animations:
+    duration_fast: "0.15s"
+    duration_normal: "0.2s"
+    duration_slow: "0.4s"
+    easing: "ease, ease-in-out"
+    
+    keyframes:
+      shimmer:
+        from: "background-position: -200% 0"
+        to: "background-position: 200% 0"
+      
+      slideInRight:
+        from: "transform: translateX(100%)"
+        to: "transform: translateX(0)"
+      
+      fadeIn:
+        from: "opacity: 0"
+        to: "opacity: 1"
+
+# ═══════════════════════════════════════════════════════════════
+# DESIGN PRINCIPLES
+# ═══════════════════════════════════════════════════════════════
+
+principles:
+  spacing:
+    rule: "Strict +4px increments"
+    base_unit: "4px"
+    approved_values:
+      - 4px
+      - 8px
+      - 12px
+      - 16px
+      - 20px
+      - 24px
+      - 28px
+      - 32px
+      - 36px
+      - 40px
+      - 44px
+      - 48px
+    note: "Never use values that don't follow +4px increment"
+  
+  border_radius:
+    rule: "Based on 8px system"
+    base_unit: "8px"
+    values:
+      - "4px (sm)"
+      - "8px (md - default)"
+      - "12px (lg)"
+      - "16px (xl)"
+      - "24px (2xl)"
+      - "9999px (full/pill)"
+  
+  color_usage:
+    primary: "Use #249E5E for all primary actions, brand highlights, active states"
+    secondary: "Use primary-50 (#E8F7F0) for backgrounds, hover states, selected items"
+    secondary_buttons: "Use primary color stroke (#249E5E) for borders"
+    text: "Use gray scale for text hierarchy"
+    semantic: "Use semantic colors (success, warning, danger, info) for status indicators only"
+  
+  typography:
+    font: "Inter for all text"
+    hierarchy: "Use type scale consistently"
+    weights: "Regular (400) for body, SemiBold (600) for headings, Bold (700) for display"
+    line_height: "1.4-1.6 for readability"
+  
+  accessibility:
+    contrast: "Ensure WCAG AA compliance for text"
+    focus_visible: "Always show focus indicators"
+    interactive_size: "Minimum 36px height for touch targets"
+    keyboard_navigation: "Support tab navigation"
+  
+  consistency:
+    components: "Use design system components exclusively"
+    spacing: "Follow strict spacing rules"
+    colors: "Use defined color palette only"
+    shadows: "Use defined shadow tokens"
+
+# ═══════════════════════════════════════════════════════════════
+# IMPLEMENTATION NOTES
+# ═══════════════════════════════════════════════════════════════
+
+implementation:
+  
+  technology_stack:
+    framework: "React"
+    styling: "Tailwind CSS v4.0"
+    icons: "lucide-react"
+    charts: "recharts"
+    font_loading: "@fontsource/inter or Google Fonts"
+  
+  file_structure:
+    tokens: "/src/app/components/ds/tokens.ts"
+    components:
+      - "/src/app/components/ds/DSColors.tsx"
+      - "/src/app/components/ds/DSTypography.tsx"
+      - "/src/app/components/ds/DSButtons.tsx"
+      - "/src/app/components/ds/DSForms.tsx"
+      - "/src/app/components/ds/DSCards.tsx"
+      - "/src/app/components/ds/DSBadges.tsx"
+      - "/src/app/components/ds/DSAlerts.tsx"
+      - "/src/app/components/ds/DSMisc.tsx"
+      - "/src/app/components/ds/DSTables.tsx"
+      - "/src/app/components/ds/DSCharts.tsx"
+      - "/src/app/components/ds/DSPopups.tsx"
+    orchestrator: "/src/app/components/DesignSystem.tsx"
+    styles: "/src/styles/theme.css"
+  
+  special_features:
+    custom_select: "Custom dropdown component replaces native select, uses primary-50 for selected/hover states"
+    search_input_icon: "Icon positioning fixed at left:10px with proper alignment"
+    button_sizes: "Visual rulers and spec tables document exact dimensions"
+    avatar_sizes: "Visual comparison with dimension callouts"
+    popup_patterns: "10 interactive popup patterns fully implemented"
+  
+  browser_support:
+    modern: "Chrome, Firefox, Safari, Edge (latest 2 versions)"
+    mobile: "iOS Safari, Chrome Mobile"
+    note: "No IE11 support required"
+
+# ═══════════════════════════════════════════════════════════════
+# VERSION HISTORY
+# ═══════════════════════════════════════════════════════════════
+
+version_history:
+  - version: "1.0.0"
+    date: "2026-03-11"
+    changes:
+      - "Initial complete design system specification"
+      - "All components documented with exact specifications"
+      - "Typography, color, spacing, and shadow tokens finalized"
+      - "Button sizes with visual rulers added"
+      - "Avatar sizes with dimension callouts added"
+      - "Custom select dropdown with primary-50 colors implemented"
+      - "Search input icon positioning bug fixed"
+      - "10 popup patterns completed (modal, drawer, popover, context menu, toast, tooltip, lightbox, fullscreen, command palette, multi-step wizard)"
+      - "Full chart specifications with Recharts integration"
+      - "Table component with sortable, searchable, selectable patterns"
+      - "Strict +4px spacing increment rule enforced"
+      - "8px-based border radius system established"
+    contributors:
+      - "Design System Team"
+
+# ═══════════════════════════════════════════════════════════════
+# EXPORT & INTEGRATION
+# ═══════════════════════════════════════════════════════════════
+
+export:
+  formats:
+    - yaml
+    - json
+    - figma_tokens
+    - css_variables
+  
+  css_variables:
+    note: "All tokens can be exported as CSS custom properties"
+    example: |
+      :root {
+        --primary: #249E5E;
+        --primary-50: #E8F7F0;
+        --gray-900: #111827;
+        /* ... */
+      }
+  
+  figma_integration:
+    tokens_plugin: "Compatible with Figma Tokens plugin"
+    import_path: "Import as JSON to Figma design files"
+  
+  documentation_site:
+    platform: "Storybook or custom React app"
+    features:
+      - "Live component previews"
+      - "Interactive documentation"
+      - "Code snippets"
+      - "Copy-paste examples"
+      - "Dark mode support (future)"
+
+---
+# End of CMS Commander Design System Specification

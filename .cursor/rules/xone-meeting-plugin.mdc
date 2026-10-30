@@ -1,0 +1,32 @@
+---
+description: Standalone xone-meeting-plugin build contract (five pillars, stack, layout)
+alwaysApply: true
+---
+
+# xone-meeting-plugin
+
+Greenfield standalone plugin. Build from `prd.md`, `tad.md`, `wbs_and_execution_plan.md`. Do not ALTER or copy Xone `governance_*`, `hr_employees`, or `project_tasks`. Ignore `TAD_Xone_2.md` and the Xone reuse map for implementation.
+
+## Pillars
+
+1. FullCalendar: Month, Week, Day, Resource Timeline; DnD; recurrence; conflict checks
+2. Timeboxed agenda with presenters and pre-read attachments
+3. TipTap + Yjs WebSockets; timers; flag Action / Decision
+4. One-click convert via TaskPort; store `linked_task_id`
+5. Local Ollama `qwen2.5:7b-instruct`; MoM sign-off; lock; PDF
+
+## Stack
+
+Next.js 14, FastAPI (Python 3.12), PostgreSQL, Redis, FullCalendar, TipTap, Yjs, local Ollama only.
+
+## Layout
+
+Root: `apps`, `core`, `workers`, `infrastructure`, `config`, `docs`, `tests`, `scripts`. Domain: `apps/meetings/{api,services,models,schemas,tests,prompts}`. UI: `apps/web`. Ports: `core/integrations`. Never `core/utils/`. No business logic in `api/`.
+
+## Domain
+
+Plugin-owned tables (`meetings`, `meeting_agenda_items`, `meeting_actions`, …). AI sets `is_candidate=true` only; workers never call TaskPort. `APPROVED` locks notes and agendas. Video is a join URL. Local commit first if Ollama or video is down.
+
+## Out of scope
+
+Native video engine, cloud LLMs, public calendar publish, meeting billing, auto-creating tasks from transcripts.
